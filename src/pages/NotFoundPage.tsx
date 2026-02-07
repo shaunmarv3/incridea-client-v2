@@ -78,17 +78,22 @@ function NotFoundPage() {
           }
         `}
       </style>
-      <section
-        className="fixed inset-0 flex items-center justify-center w-full h-full overflow-auto"
+      {/* Fixed Background Layer */}
+      <div
+        className="fixed inset-0 w-full h-full pointer-events-none"
         style={{
           backgroundImage: "url(/notfound/bg1.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          zIndex: 0,
         }}
-      >
-        <div className="relative z-10 flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-12 px-6">
-          <div className="shrink-0 floating-image flex justify-center items-center w-full md:w-auto">
+      />
+
+      {/* Content Layer - Flows with Layout */}
+      <section className="relative z-10 w-full flex flex-col items-center justify-center py-10 min-h-[60vh] overflow-hidden lg:pr-24">
+        <div className="flex flex-col xl:flex-row items-center justify-center gap-8 xl:gap-12 px-6">
+          <div className="shrink-0 floating-image flex justify-center items-center w-full md:w-auto -mt-20 xl:mt-0">
             <img
               /* I have updated this back to your JPEG name. 
                  If this still fails, please rename your file to simply 'img.jpg' 
@@ -99,7 +104,7 @@ function NotFoundPage() {
             />
           </div>
 
-          <div className="text-center xl:text-left flex flex-col items-center justify-center xl:items-start floating-text">
+          <div className="text-center xl:text-left flex flex-col items-center justify-center xl:items-start floating-text -mt-32 xl:mt-0">
             <h1
               className="text-7xl md:text-8xl font-bold mb-4 xl:mb-4 jersey-10-regular glitch"
               data-text="404 Not Found"
@@ -117,9 +122,9 @@ function NotFoundPage() {
             </p>
             <Link
               to="/"
-              className="cursor-target px-16 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-4xl transition jersey-10-regular text-xl"
+              className="cursor-target px-16 py-4 bg-[#5b21b6] hover:bg-[#4c1d95] text-white font-semibold rounded-md transition-all duration-300 skew-x-[-10deg] jersey-10-regular text-xl inline-block"
             >
-              Go Home
+              <span className="block skew-x-10">Go Home</span>
             </Link>
           </div>
         </div>
