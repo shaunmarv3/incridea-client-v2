@@ -50,7 +50,7 @@ const creditsData = [
       </div>
 
       {/* Content */}
-      <section className="flex flex-col items-center w-full py-12 px-4">
+      <section className="flex flex-col items-center max-w-full py-12 px-4 overflow-x-hidden">
         <Slideshow
           images={teamImages}
           autoplayDelay={4000}
@@ -59,7 +59,8 @@ const creditsData = [
         {/* Animated Title - Fade Up */}
         <div className="relative pt-20 mt-4 flex flex-col items-center justify-center w-full">
           <motion.h1
-            className="font-moco text-3xl sm:text-5xl sm:top-23 md:top-20 lg:top-13  top-26 text-center md:text-6xl absolute lg:text-8xl font-bold w-full mt-12 bg-gradient-to-b from-white via-white to-transparent bg-clip-text text-transparent tracking-wider"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap sm:top-23 md:top-20 lg:top-13 top-22 text-center absolute font-bold w-full mt-12 bg-gradient-to-b from-white via-white to-transparent bg-clip-text text-transparent tracking-wider"
+            style={{ fontFamily: '"Michroma", sans-serif' }}
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
