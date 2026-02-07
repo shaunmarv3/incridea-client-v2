@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import TechCard from '../components/TechCard'
 
-// Sample tech team members data
 const people = [
   {
     image: '/chill.jpg',
@@ -113,7 +112,6 @@ const people = [
 export default function TechTeamPage() {
    
 
-  // const uq=[...new Set(people.map(user => user.role))]
 
   return (
     <>
@@ -126,12 +124,12 @@ export default function TechTeamPage() {
         <div className="absolute inset-0 " />
       </div>
 
-      {/* Content */}
+      {}
       <section className="flex flex-col items-center w-full pt-0 sm:pt-2 md:pt-4 lg:pt-6 pb-12 px-4">
          
-        {/* Members section */}
-        <div className="relative pt-20 flex flex-col items-center justify-center w-full">
-        {/* Animated Title - Fade Up */}
+        {}
+        <div className="relative pt-20 -mt-24 lg:mt-0 flex flex-col items-center justify-center w-full">
+        {}
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap sm:top-13 md:top-11 lg:top-4 top-17 text-center absolute font-bold w-full mt-12 bg-gradient-to-b from-white via-white to-transparent bg-clip-text text-transparent tracking-wider"
             style={{ fontFamily: '"Michroma", sans-serif' }}
@@ -144,11 +142,11 @@ export default function TechTeamPage() {
             }}
           >
             TECH TEAM
-            {/* MEMBERS */}
+            {}
           </motion.h1>
-          {/* Team Members Grid */}
+          {}
           <div className="flex flex-wrap  relative z-20 gap-16 mt-16 w-full max-w-4xl justify-center">
-            {/* {people.filter(member => member.role === "Full Stack").map((member, index) => ( */}
+            {}
             {people.map((member, index) => (
               <TechCard
                 key={index}

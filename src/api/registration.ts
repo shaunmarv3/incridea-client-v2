@@ -19,6 +19,7 @@ export interface Team {
   eventId: number
   leaderId: number
   confirmed: boolean
+  roundNo: number
   TeamMembers: TeamMember[]
   Leader?: {
     User: {
@@ -27,6 +28,7 @@ export interface Team {
       email: string
     }
   }
+  eventParticipantId?: number
 }
 
 export async function registerSoloEvent(eventId: number) {
@@ -55,13 +57,13 @@ export async function confirmTeam(teamId: number) {
 }
 
 export async function leaveTeam(teamId: number) {
-    const { data } = await apiClient.post<{ count: number }>('/registration/leave-team', { teamId })
-    return data
+  const { data } = await apiClient.post<{ count: number }>('/registration/leave-team', { teamId })
+  return data
 }
 
 export async function deleteTeam(teamId: number) {
-    const { data } = await apiClient.post<Team>('/registration/delete-team', { teamId })
-    return data
+  const { data } = await apiClient.post<Team>('/registration/delete-team', { teamId })
+  return data
 }
 
 export interface PaymentInitiateResponse {
@@ -90,7 +92,6 @@ export async function getPaymentStatus(type?: string) {
      const url = type ? `/payment/my-status?type=${type}` : '/payment/my-status'
      const { data } = await apiClient.get<any>(url)
      if (data.status === 'success') {
-         // Accept success even without PID/Receipt if logic allows (for accommodation without PID gen)
          return { 
            status: 'success', 
            message: 'Payment verified', 
@@ -116,7 +117,6 @@ export async function getPaymentStatus(type?: string) {
          }
      }
   } catch (e) {
-    // Ignore error
   }
   return { status: 'pending', message: 'Payment verification pending', processingStep: null }
 }
